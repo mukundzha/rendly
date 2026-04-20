@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://rendly-one.vercel.app/">
-    <img src="https://img.shields.io/badge/Live Demo-rendly.app-orange?style=for-the-badge" alt="Live Demo" />
+    <img src="https://img.shields.io/badge/Live Demo-rendly-orange?style=for-the-badge" alt="Live Demo" />
   </a>
   <a href="https://github.com/mukundzha/rendly">
     <img src="https://img.shields.io/badge/GitHub-mukundzha/rendly-black?style=for-the-badge" alt="GitHub" />
