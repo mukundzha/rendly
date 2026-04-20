@@ -76,11 +76,11 @@ export default function RootLayout({
 }>) {
   return (
     <SupabaseProvider>
-      <Analytics />
       <SmoothScroll>
       <html lang="en" className={`${syne.variable} ${instrumentSerif.variable} ${geistMono.variable} ${inter.variable} ${dmSerifDisplay.variable} ${playfair.variable} ${montserrat.variable} ${roboto.variable}`} suppressHydrationWarning>
         <body className="h-full flex flex-col antialiased" suppressHydrationWarning>
           {children}
+          <Analytics />
         </body>
       </html>
       </SmoothScroll>
