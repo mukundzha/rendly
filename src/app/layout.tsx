@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Syne, Instrument_Serif, Inter, DM_Serif_Display, Playfair_Display, Montserrat, Roboto } from "next/font/google";
 import { SupabaseProvider } from "@/components/SupabaseProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -75,6 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <SupabaseProvider>
+      <Analytics />
       <SmoothScroll>
       <html lang="en" className={`${syne.variable} ${instrumentSerif.variable} ${geistMono.variable} ${inter.variable} ${dmSerifDisplay.variable} ${playfair.variable} ${montserrat.variable} ${roboto.variable}`} suppressHydrationWarning>
         <body className="h-full flex flex-col antialiased" suppressHydrationWarning>
