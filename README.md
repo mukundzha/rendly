@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://rendly.app">
+  <a href="https://rendly-one.vercel.app/">
     <img src="https://img.shields.io/badge/Live Demo-rendly.app-orange?style=for-the-badge" alt="Live Demo" />
   </a>
   <a href="https://github.com/mukundzha/rendly">
