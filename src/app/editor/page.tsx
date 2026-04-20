@@ -16,7 +16,9 @@ type Scene = {
   size?: number;
 };
 
-const DEFAULT_CODE = `TEXT "Start Creating"
+const DEFAULT_CODE = `// .to create new scene,give an space of two lines between code.
+
+TEXT "Start Creating"
 FONT Inter
 COLOR #1A1A1A
 BACKGROUND #FFFFFF
@@ -47,6 +49,50 @@ function EditorContent() {
   const [isExporting, setIsExporting] = useState(false);
   const [exportProgress, setExportProgress] = useState(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const toggleComment = useCallback(() => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+    
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const lines = code.split('\n');
+    let result: string[] = [];
+    let lineStart = 0;
+    let lineEnd = 0;
+    let charCount = 0;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const lineLen = lines[i].length + 1;
+      if (charCount <= start && start < charCount + lineLen) lineStart = i;
+      if (charCount < end && end <= charCount + lineLen) { lineEnd = i; break; }
+      charCount += lineLen;
+    }
+    
+    for (let i = lineStart; i <= lineEnd; i++) {
+      if (lines[i].startsWith('// ')) {
+        result.push(lines[i].substring(3));
+      } else if (lines[i].trim()) {
+        result.push('// ' + lines[i]);
+      } else {
+        result.push(lines[i]);
+      }
+    }
+    
+    const newCode = [...lines.slice(0, lineStart), ...result, ...lines.slice(lineEnd + 1)].join('\n');
+    setCode(newCode);
+  }, [code]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+        e.preventDefault();
+        toggleComment();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [toggleComment]);
 
   useEffect(() => {
     const codeParam = searchParams.get('code');
@@ -87,6 +133,7 @@ function EditorContent() {
       };
 
       for (const line of lines) {
+        if (line.trim().startsWith('// ')) continue;
         const upper = line.toUpperCase().trim();
         if (upper.startsWith('TEXT ')) {
           const match = line.match(/TEXT\s+"([^"]+)"/i);

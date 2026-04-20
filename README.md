@@ -296,9 +296,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## Contact
 
-- **Website**: [rendly.app](https://rendly.app)
+- **Website**: [rendly-one.vercel.app](https://rendly-one.vercel.app)
 - **GitHub**: [github.com/mukundzha/rendly](https://github.com/mukundzha/rendly)
-- **Twitter**: [@rendly](https://twitter.com/rendly)
 
 ---
 
