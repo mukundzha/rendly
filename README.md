@@ -5,9 +5,6 @@
 </p>
 
 <p align="center">
-  <a href="https://rendly.app">
-    <img src="https://img.shields.io/badge/Live Demo-rendly.app-orange?style=for-the-badge" alt="Live Demo" />
-  </a>
   <a href="https://github.com/mukundzha/rendly">
     <img src="https://img.shields.io/badge/GitHub-mukundzha/rendly-black?style=for-the-badge" alt="GitHub" />
   </a>
