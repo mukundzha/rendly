@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Syne, Instrument_Serif, Inter, DM_Serif_Display, Playfair_Display, Montserrat, Roboto } from "next/font/google";
 import { SupabaseProvider } from "@/components/SupabaseProvider";
-import SmoothScroll from "@/components/SmoothScroll";
+import SmoothScroll from "@/components/SmoothScroll"; 
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
